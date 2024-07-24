@@ -1,0 +1,19 @@
+CREATE DATABASE blood_bank;
+
+USE blood_bank;
+
+CREATE TABLE donors (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(50) NOT NULL,
+    age INT NOT NULL,
+    blood_group VARCHAR(5) NOT NULL,
+    contact VARCHAR(15) NOT NULL
+);
+
+CREATE TABLE donations (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    donor_id INT NOT NULL,
+    quantity INT NOT NULL,
+    date DATE NOT NULL,
+    FOREIGN KEY (donor_id) REFERENCES donors(id)
+);
